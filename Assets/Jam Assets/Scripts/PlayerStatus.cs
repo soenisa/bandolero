@@ -9,6 +9,7 @@ namespace Bandolero {
 		private GameObject player;
 		private UIManager UI;
 		private LevelManager level;
+		private bool canCollide = true;
 
 
 		// Use this for initialization
@@ -26,8 +27,9 @@ namespace Bandolero {
 		}
 
 		void OnControllerColliderHit(ControllerColliderHit hit){
-			if (hit.transform.tag == "Enemy") {
-				Debug.Log ("we hit an enemy!");
+			if (canCollide && hit.transform.tag == "Enemy") {
+				canCollide = false;
+				Debug.Log (string.Format("Enemy hit. Player.position = {0}, Enemy.position = {1}", player.transform.position, hit.transform.position));
 				collideEnemy ();
 			}
 		}
@@ -37,20 +39,21 @@ namespace Bandolero {
 
 			// Damage player :'(
 			hitpoints -= 10;
-			Debug.Log (string.Format("HP: {0}", hitpoints));
 			UI.updateHealth (hitpoints);
 			if (hitpoints <= 0) {
 				gameOver ();
 			}
+			canCollide = true;
 		}
 
 		void knockBack() {
 			// Knockback the player (to stop continuous collision)
 			Vector3 knockbackPos = player.transform.position;
-			knockbackPos.x -= 1;
+			knockbackPos.x -= 2;
 			player.transform.position = knockbackPos;
 		}
 
+		// Disable player controller and show Game Over screen
 		void gameOver() {
 			controller.enabled = false;
 			gameObject.GetComponent<BandaleroInputController>().enabled = false;
