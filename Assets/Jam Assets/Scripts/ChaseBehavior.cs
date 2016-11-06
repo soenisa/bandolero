@@ -5,6 +5,7 @@ public class ChaseBehavior : MonoBehaviour
 {
 	bool chaseActivated = false;
 	public GameObject chasee;
+	public float triggerProximity;
 
 	// Use this for initialization
 	void Start ()
@@ -17,7 +18,7 @@ public class ChaseBehavior : MonoBehaviour
 		if (!chaseActivated) {
 			var distance = gameObject.transform.position.x - chasee.transform.position.x;
 			Debug.Log(distance);
-			chaseActivated = distance < 10;
+			chaseActivated = distance < triggerProximity;
 		} else {
 			transform.position -= new Vector3(Time.deltaTime * 6, 0);
 		}
