@@ -24,5 +24,9 @@ namespace Bandolero {
 		public void updateHealth(int hp) {
 			HP_text.text = string.Format ("HP {0}", hp);
 		}
+
+		public void gameOver() {
+
+		}
 	}
 }

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Bandolero.LevelManager
+namespace Bandolero
 {
 	public class LevelManager : MonoBehaviour {
 

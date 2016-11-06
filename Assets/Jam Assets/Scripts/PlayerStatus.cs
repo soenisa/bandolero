@@ -8,6 +8,7 @@ namespace Bandolero {
 		private CharacterController controller;
 		private GameObject player;
 		private UIManager UI;
+		private LevelManager level;
 
 
 		// Use this for initialization
@@ -15,6 +16,7 @@ namespace Bandolero {
 
 			controller = GetComponent<CharacterController>();
 			UI = GameObject.Find("LevelManager").GetComponent<UIManager>();
+			level = GameObject.Find ("LevelManager").GetComponent<LevelManager> ();
 			player = gameObject;
 		}
 		
@@ -37,6 +39,9 @@ namespace Bandolero {
 			hitpoints -= 10;
 			Debug.Log (string.Format("HP: {0}", hitpoints));
 			UI.updateHealth (hitpoints);
+			if (hitpoints < 0) {
+				gameOver ();
+			}
 		}
 
 		void knockBack() {
@@ -44,6 +49,11 @@ namespace Bandolero {
 			Vector3 knockbackPos = player.transform.position;
 			knockbackPos.x -= 1;
 			player.transform.position = knockbackPos;
+		}
+
+		void gameOver() {
+			controller.enabled = false;
+			UI.gameOver ();
 		}
 	}
 }
