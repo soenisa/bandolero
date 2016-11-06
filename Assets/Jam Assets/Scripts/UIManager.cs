@@ -6,13 +6,15 @@ namespace Bandolero {
 	public class UIManager : MonoBehaviour {
 
 		public Text HP_text;
+		public Text gameOver_text;
 		public GameObject player;
 		private PlayerStatus playerStat;
+		public Canvas canvas;
 
 		// Use this for initialization
 		void Start () {
 			playerStat = player.GetComponent<PlayerStatus>();
-			HP_text.text = string.Format ("HP: {0}", playerStat.hitpoints);
+			HP_text.text = string.Format ("HP {0}", playerStat.hitpoints);
 		}
 		
 		// Update is called once per frame
@@ -23,6 +25,9 @@ namespace Bandolero {
 		// Update health display
 		public void updateHealth(int hp) {
 			HP_text.text = string.Format ("HP {0}", hp);
+		}
+
+		public void gameOver() {
 		}
 	}
 }
