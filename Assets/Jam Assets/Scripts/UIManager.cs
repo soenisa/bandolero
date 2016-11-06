@@ -8,6 +8,7 @@ namespace Bandolero {
 		public Text HP_text;
 		public GameObject player;
 		private PlayerStatus playerStat;
+		public Canvas canvas;
 
 		// Use this for initialization
 		void Start () {
@@ -26,7 +27,6 @@ namespace Bandolero {
 		}
 
 		public void gameOver() {
-
 		}
 	}
 }

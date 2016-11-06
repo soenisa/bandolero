@@ -39,7 +39,7 @@ namespace Bandolero {
 			hitpoints -= 10;
 			Debug.Log (string.Format("HP: {0}", hitpoints));
 			UI.updateHealth (hitpoints);
-			if (hitpoints < 0) {
+			if (hitpoints <= 0) {
 				gameOver ();
 			}
 		}
@@ -53,7 +53,10 @@ namespace Bandolero {
 
 		void gameOver() {
 			controller.enabled = false;
+			gameObject.GetComponent<BandaleroInputController>().enabled = false;
+
 			UI.gameOver ();
+
 		}
 	}
 }
