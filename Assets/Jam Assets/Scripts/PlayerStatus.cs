@@ -6,7 +6,7 @@ namespace Bandolero.Player {
 
 		public int hitpoints;
 		private CharacterController controller;
-		public GameObject player;
+		private GameObject player;
 
 
 		// Use this for initialization
@@ -14,9 +14,7 @@ namespace Bandolero.Player {
 
 			controller = GetComponent<CharacterController>();
 
-			if(!player){
-				Debug.Log ("Please drag player point into player variable");
-			}
+			player = gameObject;
 		}
 		
 		// Update is called once per frame
@@ -35,7 +33,7 @@ namespace Bandolero.Player {
 			knockBack ();
 
 			// Damage player :'(
-			hitpoints -= 1;
+			hitpoints -= 10;
 			Debug.Log (string.Format("HP: {0}", hitpoints));
 		}
 
