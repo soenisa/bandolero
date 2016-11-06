@@ -8772,6 +8772,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chasee: {fileID: 457107311}
+  triggerProximity: 23.36
+  speed: -6.11
 --- !u!1 &602714436
 GameObject:
   m_ObjectHideFlags: 0

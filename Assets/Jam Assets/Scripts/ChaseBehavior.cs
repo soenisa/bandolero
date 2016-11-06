@@ -6,6 +6,7 @@ public class ChaseBehavior : MonoBehaviour
 	bool chaseActivated = false;
 	public GameObject chasee;
 	public float triggerProximity;
+	public float speed;
 
 	// Use this for initialization
 	void Start ()
@@ -20,7 +21,7 @@ public class ChaseBehavior : MonoBehaviour
 			Debug.Log(distance);
 			chaseActivated = distance < triggerProximity;
 		} else {
-			transform.position -= new Vector3(Time.deltaTime * 6, 0);
+			transform.position += new Vector3(Time.deltaTime * speed, 0);
 		}
 	}
 }
