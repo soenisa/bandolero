@@ -8,7 +8,6 @@ enum MovementState
 	Right}
 ;
 
-namespace Bandolero {
 public class BandaleroInputController : MonoBehaviour
 {
 	public Animator animator;
@@ -80,5 +79,4 @@ public class BandaleroInputController : MonoBehaviour
 		motor.inputMoveDirection = gameObject.transform.rotation * directionVector;
 		motor.inputJump = shouldJump;
 	}
-}
 }
