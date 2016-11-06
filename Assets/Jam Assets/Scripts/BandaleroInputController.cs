@@ -38,7 +38,7 @@ namespace Bandolero
 			var shouldRun = movementState != MovementState.Stop;
 			var shouldJump = !dancing && Input.GetKeyDown ("w");
 			var shouldDance = !shouldRun && !shouldJump && Input.GetKey ("s");
-			var shouldShoot = !shouldRun && !shouldJump && Input.GetKey ("space");
+			var shouldShoot = !shouldRun && !shouldJump && Input.GetKeyDown ("space");
 
 			dancing = shouldDance;
 
