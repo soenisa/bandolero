@@ -26,10 +26,19 @@ namespace Bandolero
 			GameObject cubeEnemy = GameObject.Find("Cube");
 
 			// Add enemies to spawn
-			spawnList.Add(new Spawner(5, 10, cubeEnemy));
-			spawnList.Add(new Spawner(13, 15, cubeEnemy));
-			spawnList.Add(new Spawner(20, 25, cubeEnemy));
-			spawnList.Add(new Spawner(32, 38, cubeEnemy));
+			spawnList.Add(new Spawner(5, cubeEnemy));
+			spawnList.Add(new Spawner(17, cubeEnemy));
+			spawnList.Add(new Spawner(44, cubeEnemy));
+			spawnList.Add(new Spawner(55, cubeEnemy));
+			spawnList.Add(new Spawner(65, cubeEnemy));
+			spawnList.Add(new Spawner(94, cubeEnemy));
+			spawnList.Add(new Spawner(104, cubeEnemy));
+			spawnList.Add(new Spawner(122, cubeEnemy));
+			spawnList.Add(new Spawner(139, cubeEnemy));
+			spawnList.Add(new Spawner(156, cubeEnemy));
+			spawnList.Add(new Spawner(187, cubeEnemy));
+			spawnList.Add(new Spawner(194, cubeEnemy));
+			spawnList.Add(new Spawner(213, cubeEnemy));
 
 			// Order list by trigger position
 			spawnList = spawnList.OrderBy(o=>o.triggerXPosition).ToList();

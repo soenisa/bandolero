@@ -28,6 +28,9 @@ namespace Bandolero {
 		}
 
 		public void gameOver() {
+			Vector3 pos = Vector3.zero;
+			Text go = Instantiate (gameOver_text, canvas.transform) as Text;
+			go.rectTransform.anchoredPosition = Vector2.zero;
 		}
 	}
 }
