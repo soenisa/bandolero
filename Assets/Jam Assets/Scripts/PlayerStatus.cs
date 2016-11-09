@@ -5,7 +5,11 @@ namespace Bandolero {
 	public class PlayerStatus : MonoBehaviour {
 
 		public int hitpoints = 100;
-		private CharacterController controller;
+        public AudioClip playerHitSound;
+        public AudioClip playerDeathSound;
+
+        private AudioSource audio;
+        private CharacterController controller;
 		private GameObject player;
 		private UIManager UI;
 		private LevelManager level;
@@ -16,6 +20,7 @@ namespace Bandolero {
 		void Start () {
 
 			controller = GetComponent<CharacterController>();
+			audio = GetComponent<AudioSource>();
 			UI = GameObject.Find("LevelManager").GetComponent<UIManager>();
 			level = GameObject.Find ("LevelManager").GetComponent<LevelManager> ();
 			player = gameObject;
@@ -36,12 +41,14 @@ namespace Bandolero {
 
 		void collideEnemy() {
 			knockBack ();
+            audio.PlayOneShot(playerHitSound);
 
 			// Damage player :'(
 			hitpoints -= 10;
 			UI.updateHealth (hitpoints);
 			if (hitpoints <= 0) {
 				gameOver ();
+                audio.PlayOneShot(playerDeathSound);
 			}
 			canCollide = true;
 		}
